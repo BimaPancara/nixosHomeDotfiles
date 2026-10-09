@@ -84,7 +84,22 @@
     firefox
     git
    ];
-  
+
+  # Install List of Fonts
+  fonts.packages = with pkgs; [
+  # Main programming font with terminal icons
+  nerd-fonts.jetbrains-mono
+
+  # Icons for Waybar and other applications
+  font-awesome
+
+  # General text and Unicode coverage
+  noto-fonts
+  noto-fonts-color-emoji
+];
+
+  fonts.fontconfig.enable = true;
+
   # Enable niri window manager
   programs.niri.enable = true;
 

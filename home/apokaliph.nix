@@ -10,6 +10,7 @@
   # Add Packages
   home.packages = with pkgs; [
     fastfetch
+    waybar
   ];
   
   # Link Config
@@ -21,6 +22,8 @@
   xdg.configFile."niri/config.kdl".source =
   ./dotfiles/niri/config.kdl;
 
+  # Waybar
+  xdg.configFile."waybar".source = ./dotfiles/waybar;
 
   services.udiskie = {
     enable = true;
