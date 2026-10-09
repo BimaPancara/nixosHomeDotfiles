@@ -276,6 +276,7 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
 spawn-sh-at-startup "swaybg -i ~/Pictures/RosePine928887.png"
+spawn-at-startup "sh" "-c" "export XDG_CURRENT_DESKTOP=niri XDG_SESSION_TYPE=wayland; systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE; dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE"
 // spawn-sh-at-startup "swaylock -i /home/apokaliph/Pictures/1296357.png"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"

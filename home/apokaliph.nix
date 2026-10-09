@@ -7,11 +7,16 @@
 
     home.stateVersion = "26.05";
 
+    home.sessionVariables = {
+	XDG_CURRENT_DESKTOP = "niri";
+    };
+
 # Add Packages
     home.packages = with pkgs; [
 	fastfetch
         waybar
         swaybg
+	swaylock
         fuzzel
         foot
         zsh
@@ -23,6 +28,15 @@
         mpv
 	youtube-tui
 	yt-dlp
+	btop
+	kdePackages.dolphin
+        kdePackages.ark
+	kdePackages.gwenview
+	kdePackages.okular
+	kdePackages.qtsvg
+	kdePackages.kio
+	kdePackages.kio-fuse
+	kdePackages.kio-extras
     ];
 
 # Link Config
