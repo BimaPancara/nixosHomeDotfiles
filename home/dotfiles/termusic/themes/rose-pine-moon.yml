@@ -1,0 +1,27 @@
+colors:
+  name: Rosé Pine Moon
+  author: Henrique
+  primary:
+    background: "#232136"
+    foreground: "#e0def4"
+  cursor:
+    text: "#232136"
+    cursor: "#e0def4"
+  normal:
+    black: "#2a273f"
+    red: "#eb6f92"
+    green: "#9ccfd8"
+    yellow: "#f6c177"
+    blue: "#3e8fb0"
+    magenta: "#c4a7e7"
+    cyan: "#9ccfd8"
+    white: "#e0def4"
+  bright:
+    black: "#6e6a86"
+    red: "#eb6f92"
+    green: "#9ccfd8"
+    yellow: "#f6c177"
+    blue: "#3e8fb0"
+    magenta: "#c4a7e7"
+    cyan: "#9ccfd8"
+    white: "#e0def4"

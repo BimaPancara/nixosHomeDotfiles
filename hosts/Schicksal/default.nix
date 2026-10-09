@@ -93,6 +93,9 @@
   "nix-command"
   "flakes"
   ];
+  
+  # Add .backup when encounter duplicate file
+  home-manager.backupFileExtension = "backup";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
