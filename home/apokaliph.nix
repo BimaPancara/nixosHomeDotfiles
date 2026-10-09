@@ -2,35 +2,74 @@
 { pkgs, ... }:
 
 {
-  home.username = "apokaliph";
-  home.homeDirectory = "/home/apokaliph";
-  
-  home.stateVersion = "26.05";
-  
-  # Add Packages
-  home.packages = with pkgs; [
-    fastfetch
-    waybar
-    swaybg
-    fuzzel
-  ];
-  
-  # Link Config
-  # Fastfetch
-  xdg.configFile."fastfetch/config.jsonc".source =
-    ./dotfiles/fastfetch/config.jsonc;
-  
-  # Niri
-  xdg.configFile."niri/config.kdl".source =
-  ./dotfiles/niri/config.kdl;
+    home.username = "apokaliph";
+    home.homeDirectory = "/home/apokaliph";
 
-  # Waybar
-  xdg.configFile."waybar".source = ./dotfiles/waybar;
-  # Fuzzel
-  xdg.configFile."fuzzel".source = ./dotfiles/fuzzel;
-  
-  services.udiskie = {
-    enable = true;
-    tray = "never";
-  };
+    home.stateVersion = "26.05";
+
+# Add Packages
+    home.packages = with pkgs; [
+	fastfetch
+        waybar
+        swaybg
+        fuzzel
+        foot
+        zsh
+        starship
+        neovim
+        yazi
+        termusic
+        tree
+        mpv
+	youtube-tui
+	yt-dlp
+    ];
+
+# Link Config
+# Fastfetch
+    xdg.configFile."fastfetch/config.jsonc".source =
+	./dotfiles/fastfetch/config.jsonc;
+
+# Niri
+    xdg.configFile."niri/config.kdl".source =
+	./dotfiles/niri/config.kdl;
+
+# Waybar
+    xdg.configFile."waybar".source = ./dotfiles/waybar;
+
+# Fuzzel
+    xdg.configFile."fuzzel".source = ./dotfiles/fuzzel;
+
+# Foot
+    xdg.configFile."foot".source = ./dotfiles/foot;
+
+# Starship
+    xdg.configFile."starship.toml".source =
+	./shell/starship.toml;
+
+# Zsh
+    home.file.".zshrc".source =
+	./shell/.zshrc;
+
+# Neovim
+    xdg.configFile."nvim".source = ./dotfiles/nvim;
+
+# Yazi
+    xdg.configFile."yazi".source =
+	./dotfiles/yazi; 
+
+# Termusic
+    xdg.configFile."termusic/tui.toml".source =
+	./dotfiles/termusic/tui.toml;
+    xdg.configFile."termusic/themes".source =
+	./dotfiles/termusic/themes;
+
+# YouTube TUI
+    xdg.configFile."youtube-tui".source =
+	./dotfiles/youtube-tui;
+
+services.udiskie = {
+	enable = true;
+	tray = "never";
+    };
 }
