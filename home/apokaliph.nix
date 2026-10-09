@@ -11,6 +11,8 @@
   home.packages = with pkgs; [
     fastfetch
     waybar
+    swaybg
+    fuzzel
   ];
   
   # Link Config
@@ -24,7 +26,9 @@
 
   # Waybar
   xdg.configFile."waybar".source = ./dotfiles/waybar;
-
+  # Fuzzel
+  xdg.configFile."fuzzel".source = ./dotfiles/fuzzel;
+  
   services.udiskie = {
     enable = true;
     tray = "never";
