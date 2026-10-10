@@ -29,9 +29,20 @@
   networking.hostName = "Schicksal"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
+
   # Enable networking
   networking.networkmanager.enable = true;
-
+  #-----
+  #Noctalia Shell
+  # Enable Bluetooth
+  hardware.bluetooth.enable = true;
+  
+  # Enable Power Daemon Profile
+  services.power-profiles-daemon.enable = true;
+  
+  # Enable UPower for Battery Report 
+  services.upower.enable = true;
+  #-----
   # Set your time zone.
   time.timeZone = "Europe/London";
 
