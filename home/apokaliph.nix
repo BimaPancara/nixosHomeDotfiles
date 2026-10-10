@@ -29,6 +29,14 @@
 	youtube-tui
 	yt-dlp
 	btop
+	xwayland-satellite
+	lazygit
+
+    # Xilinx Stuff
+	xlsclients
+	picocom
+
+    # KDE and Dolphin Stuff
 	kdePackages.dolphin
         kdePackages.ark
 	kdePackages.gwenview

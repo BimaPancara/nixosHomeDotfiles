@@ -12,3 +12,7 @@ compinit
 eval "$(starship init zsh)"
 # End of lines added by compinstall
 export PATH="$HOME/.local/bin:$PATH"
+
+alias xilinx='nix develop --no-write-lock-file github:nix-community/nix-environments#xilinx-vitis'
+alias check='nix flake check ~/nix-config/'
+alias rebuild='sudo nixos-rebuild switch --flake ~/nix-config#Schicksal'
