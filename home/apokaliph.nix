@@ -31,6 +31,7 @@
 	btop
 	xwayland-satellite
 	lazygit
+	prismlauncher
 
     # Xilinx Stuff
 	xlsclients

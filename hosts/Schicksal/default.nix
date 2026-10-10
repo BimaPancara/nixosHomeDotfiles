@@ -160,6 +160,9 @@
 
   fonts.fontconfig.enable = true;
 
+  # Enable steam
+  programs.steam.enable = true;
+
   # Enable niri window manager
   programs.niri.enable = true;
 
