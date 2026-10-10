@@ -25,6 +25,6 @@ env:
   terminal-emulator: foot
   browser: xdg-open
   youtube-downloader: yt-dlp
-  download-path: ~/Downloads/%(title)s-%(id)s.%(ext)s
-  save-path: ~/.local/share/youtube-tui/saved/
+  download-path: ~/Music/%(title)s-%(id)s.%(ext)s
+  save-path: ~/Music/youtube-tui-saved/
   video-player: mpv

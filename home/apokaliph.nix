@@ -32,6 +32,8 @@
 	xwayland-satellite
 	lazygit
 	prismlauncher
+	featherpad
+	feh
 
     # Xilinx Stuff
 	xlsclients
@@ -46,7 +48,17 @@
 	kdePackages.kio
 	kdePackages.kio-fuse
 	kdePackages.kio-extras
-    ];
+
+    # Script, Coding, etc
+	python3
+	python3Packages.pip
+	lua
+	luarocks
+	tree-sitter
+	clang-tools
+	lua-language-server
+	pyright
+];
 
 # Link Config
 # Fastfetch

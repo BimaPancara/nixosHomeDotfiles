@@ -91,6 +91,8 @@
       firefox
       git
       adwaita-icon-theme
+      brightnessctl
+      playerctl
 
 # Hardware inspection
       usbutils       # lsusb
@@ -182,11 +184,13 @@
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
       kdePackages.xdg-desktop-portal-kde
+      xdg-desktop-portal-gnome
     ];
 
     config.niri = {
 	default = lib.mkForce [ "kde" "gtk" ];
-
+      
+      "org.freedesktop.impl.portal.ScreenCast" = "gnome";
       "org.freedesktop.impl.portal.FileChooser" = [
         "kde"
       ];
