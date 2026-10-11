@@ -13,6 +13,10 @@ eval "$(starship init zsh)"
 # End of lines added by compinstall
 export PATH="$HOME/.local/bin:$PATH"
 
+if [[ -z "$WAYLAND_DISPLAY" && -z "$DISPLAY" && "$(tty)" == "/dev/tty1" ]]; then
+    exec niri-session
+fi
+
 alias xilinx='nix develop --no-write-lock-file github:nix-community/nix-environments#xilinx-vitis'
 alias check='nix flake check ~/nix-config/'
 alias rebuild='sudo nixos-rebuild switch --flake ~/nix-config#Schicksal'

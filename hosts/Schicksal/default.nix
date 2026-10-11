@@ -91,6 +91,15 @@
   
   # Xwayland
   programs.xwayland.enable = true;
+  
+  # Zsh
+  programs.zsh.enable = true;
+  users.users.apokaliph.shell = pkgs.zsh;
+
+  # Noctalia Greeter
+  services.displayManager.noctalia-greeter = {
+    enable = true;
+  };
 
 # List packages installed in system profile.
 # You can use https://search.nixos.org/ to find more packages (and options).

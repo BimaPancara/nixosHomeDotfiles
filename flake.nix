@@ -15,9 +15,14 @@
       inputs.nixpkgs.follows = "nixpkgs"; # this line is optional, prevents downloading two versions of nixpkgs but disables cache   
     };
 
+    noctalia-greeter = {
+  url = "github:noctalia-dev/noctalia-greeter";
+  inputs.nixpkgs.follows = "nixpkgs";
+};
+
   };
 
-  outputs = { nixpkgs, home-manager, noctalia, ... }: {
+  outputs = { nixpkgs, home-manager, noctalia, noctalia-greeter, ... }: {
     nixosConfigurations.Schicksal = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
@@ -25,6 +30,7 @@
         ./hosts/Schicksal/default.nix
 
         home-manager.nixosModules.home-manager
+	noctalia-greeter.nixosModules.default
 
         {
           home-manager.useGlobalPkgs = true;
