@@ -6,10 +6,7 @@
     home.packages = with pkgs; [
 	niri
         waybar
-        fuzzel
         foot
-        swaybg
-        swaylock
     ];
 
     # Enable Noctalia
@@ -36,9 +33,6 @@
 
 	"waybar".source =
 	    ./dotfiles/waybar;
-
-	"fuzzel".source =
-	    ./dotfiles/fuzzel;
 
 	"foot".source =
 	    ./dotfiles/foot;

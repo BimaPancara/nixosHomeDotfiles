@@ -33,5 +33,6 @@
 	clang-tools
 	lua-language-server
 	pyright
+	glslviewer
 ];
 }
