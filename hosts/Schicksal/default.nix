@@ -29,7 +29,6 @@
   networking.hostName = "Schicksal"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-
   # Enable networking
   networking.networkmanager.enable = true;
   #-----
@@ -88,7 +87,20 @@
     "x-systemd.device-timeout=5s"
   ];
 };
-  
+
+ # Virtualisation
+
+    virtualisation.libvirtd = {
+	enable = true;
+
+    qemu = {
+	package = pkgs.qemu_kvm;
+	swtpm.enable = true;
+     };
+    };
+
+    programs.virt-manager.enable = true;
+
   # Xwayland
   programs.xwayland.enable = true;
   
@@ -113,7 +125,7 @@
       adwaita-icon-theme
       brightnessctl
       playerctl
-
+      dnsmasq
 # Hardware inspection
       usbutils       # lsusb
       pciutils       # lspci
