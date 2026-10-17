@@ -18,6 +18,7 @@
 	./shell.nix
 	./services.nix
 	./terminal.nix
+	./game.nix
     ];
 
 }

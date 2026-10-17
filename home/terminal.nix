@@ -14,6 +14,7 @@
 	yt-dlp
 	btop
 	lazygit
+	unzip
 
 ];
 

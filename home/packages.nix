@@ -34,5 +34,20 @@
 	lua-language-server
 	pyright
 	glslviewer
-];
+	zeal
+
+    # Office Writing
+	texliveFull
+	libreoffice
+
+    # Electrical and Electronic
+	kicad
+	qucs-s
+	qucsator-rf
+	nanovna-saver
+	nanovna-qt
+	freecad
+
+
+	];
 }
