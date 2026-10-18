@@ -76,7 +76,34 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
- 
+
+  # NVIDIA RTX 3050 hybrid graphics
+  hardware.graphics.enable = true;
+
+  services.xserver.videoDrivers = [
+    "amdgpu"
+    "nvidia"
+  ];
+
+  hardware.nvidia = {
+    open = true;
+    modesetting.enable = true;
+
+    # Start with conservative power management settings
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+
+    prime = {
+      amdgpuBusId = "PCI:6@0:0:0";
+      nvidiaBusId = "PCI:1@0:0:0";
+
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+    };
+  };
+
  # Setup Automount
  fileSystems."/mnt/data" = {
   device = "/dev/disk/by-uuid/aabcd0c5-4d2b-4b91-b5fe-d92cd765a6b7";
