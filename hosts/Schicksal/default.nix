@@ -28,6 +28,14 @@
 
   networking.hostName = "Schicksal"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  
+  # Add Swap Size
+swapDevices = [
+  {
+    device = "/var/lib/swapfile";
+    size = 24 * 1024; # 16 GiB
+  }
+];
 
   # Enable networking
   networking.networkmanager.enable = true;
