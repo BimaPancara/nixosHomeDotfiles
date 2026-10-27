@@ -11,9 +11,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [
+  "processor.max_cstate=1"
   "efi_pstore.pstore_disable=1"
   "idle=nomwait"
   "pcie_aspm=off"
+  "iommu=pt"
   ];
 
   # Keep the latest 10 system generations in systemd-boot
