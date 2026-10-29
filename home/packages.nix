@@ -35,6 +35,7 @@
 	pyright
 	glslviewer
 	zeal
+	jdk
 
     # Office Writing
 	texliveFull
