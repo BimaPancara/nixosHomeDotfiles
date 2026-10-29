@@ -19,6 +19,7 @@
 	./services.nix
 	./terminal.nix
 	./game.nix
+	./emacs.nix
     ];
 
 }
