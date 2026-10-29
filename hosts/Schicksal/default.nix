@@ -80,7 +80,7 @@ swapDevices = [
   users.users."apokaliph" = {
     isNormalUser = true;
     description = "apokaliph";
-    extraGroups = [ "networkmanager" "wheel" "dialout" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" "libvirtd" ];
     packages = with pkgs; [];
   };
 
@@ -132,6 +132,7 @@ swapDevices = [
 
     qemu = {
 	package = pkgs.qemu_kvm;
+	runAsRoot = true;
 	swtpm.enable = true;
      };
     };
@@ -141,6 +142,16 @@ swapDevices = [
   # Xwayland
   programs.xwayland.enable = true;
   
+
+  # USB device redirection into VMs
+  virtualisation.spiceUSBRedirection.enable = true;
+
+  # Enable Polkit authentication
+  security.polkit.enable = true;
+
+  # KVM support for AMD Ryzen CPU
+  boot.kernelModules = [ "kvm-amd" ];
+
   # Zsh
   programs.zsh.enable = true;
   users.users.apokaliph.shell = pkgs.zsh;
