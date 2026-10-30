@@ -5,6 +5,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/nixos/storage.nix
+      ../../modules/nixos/podman.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -124,6 +125,7 @@ swapDevices = [
     "x-systemd.device-timeout=5s"
   ];
 };
+ 
 
  # Virtualisation
 
