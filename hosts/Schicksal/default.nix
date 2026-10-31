@@ -97,7 +97,7 @@
   ];
 
   hardware.nvidia = {
-    open = true;
+    open = false;
     modesetting.enable = true;
 
     # Start with conservative power management settings
