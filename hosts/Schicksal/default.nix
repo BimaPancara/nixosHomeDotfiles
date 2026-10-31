@@ -17,6 +17,7 @@
   "idle=nomwait"
   "pcie_aspm=off"
   "iommu=pt"
+  "nvidia-drm.modeset=1"
   ];
 
   # Keep the latest 10 system generations in systemd-boot
