@@ -17,6 +17,7 @@
   "idle=nomwait"
   "pcie_aspm=off"
   "iommu=pt"
+  "nvidia-drm.modeset=1"
   ];
 
   # Keep the latest 10 system generations in systemd-boot
@@ -97,7 +98,7 @@
   ];
 
   hardware.nvidia = {
-    open = true;
+    open = false;
     modesetting.enable = true;
 
     # Start with conservative power management settings
@@ -159,9 +160,14 @@
   users.users.apokaliph.shell = pkgs.zsh;
 
   # Noctalia Greeter
-  services.displayManager.noctalia-greeter = {
-    enable = true;
-  };
+  services.displayManager.noctalia-greeter.enable = true;
+
+  # Force wlroots (used by noctalia-greeter) to use AMD GPU only
+  # Prevents NVIDIA CRTC crash causing kernel panic and graphical corruption
+  systemd.services.greetd.serviceConfig.Environment = [
+    "WLR_DRM_DEVICES=/dev/dri/card1"
+    "WLR_NO_HARDWARE_CURSORS=1"
+  ];
 
 # List packages installed in system profile.
 # You can use https://search.nixos.org/ to find more packages (and options).
