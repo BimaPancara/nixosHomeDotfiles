@@ -34,12 +34,15 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   
   # Add Swap Size
-#swapDevices = [
-#  {
-#    device = "/var/lib/swapfile";
-#    size = 24 * 1024; # 16 GiB
-#  }
-#];
+swapDevices = [
+  {
+    device = "/var/lib/swapfile";
+    size = 24576; # 16 GiB
+  }
+  {
+    device = "/dev/disk/by-uuid/60135011-cb99-40a9-85b0-e03bb439b08d";
+  }
+];
 
   # Enable networking
   networking.networkmanager.enable = true;
