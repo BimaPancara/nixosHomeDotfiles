@@ -140,6 +140,7 @@ swapDevices = [
 	package = pkgs.qemu_kvm;
 	runAsRoot = true;
 	swtpm.enable = true;
+	vhostUserPackages = [ pkgs.virtiofsd ];
      };
     };
 
@@ -205,6 +206,7 @@ systemd.services.libvirt-default-network = {
 # List packages installed in system profile.
 # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
+      virtiofsd
       neovim
       wget
       foot
