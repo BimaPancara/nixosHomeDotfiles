@@ -26,6 +26,9 @@
     gzip
     bzip2
     xz
+    unzip
+    p7zip
+    unrar
     which
     file
     tree
