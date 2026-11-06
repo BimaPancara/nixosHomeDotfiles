@@ -20,6 +20,7 @@
     # Stability and debugging
     ./stability.nix
     ./sleep-hook.nix
+    ./suspend.nix
 
     # NixOS modules
     ../../modules/nixos/storage.nix
