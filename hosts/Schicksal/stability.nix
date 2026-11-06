@@ -38,7 +38,6 @@
 
   # Crash debugging tools
   environment.systemPackages = with pkgs; [
-    crash              # Kernel crash analysis
     sysstat            # Performance monitoring (sar, iostat)
     powertop           # Power consumption analysis
     lm_sensors         # Temperature monitoring
