@@ -17,6 +17,9 @@
     ./nix.nix
     ./storage.nix
 
+    # Stability and debugging
+    ./stability.nix
+
     # NixOS modules
     ../../modules/nixos/storage.nix
     ../../modules/nixos/podman.nix
