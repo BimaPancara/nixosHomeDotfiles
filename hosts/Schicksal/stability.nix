@@ -47,18 +47,8 @@
     '';
   };
 
-  # NVIDIA stability parameters
-  # Prevents kernel panics on hybrid graphics
+  # NVIDIA stability parameters (merged with boot.nix params)
   boot.kernelParams = [
-    # Existing params (from boot.nix)
-    "processor.max_cstate=1"
-    "efi_pstore.pstore_disable=1"
-    "idle=nomove"
-    "pcie_aspm=off"
-    "iommu=pt"
-    "nvidia-drm.modeset=1"
-    
-    # Additional stability params
     "nvidia.NVreg_EnableBacklight=1"
     "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
     "nvidia.NVreg_TemporaryFilePath=/var/tmp"
