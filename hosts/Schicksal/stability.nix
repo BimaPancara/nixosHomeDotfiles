@@ -58,4 +58,9 @@
   systemd.services.nvidia-suspend.enable = lib.mkForce true;
   systemd.services.nvidia-resume.enable = lib.mkForce true;
   systemd.services.nvidia-hibernate.enable = lib.mkForce true;
+
+  # Fix systemd 256+ suspend freeze timeout with NVIDIA/compositors
+  # Prevents "Failed to freeze unit 'user.slice': Connection timed out"
+  systemd.services.systemd-suspend.environment.SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false";
+  systemd.services.systemd-hibernate.environment.SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false";
 }
