@@ -12,7 +12,21 @@
   users.users.apokaliph.shell = pkgs.zsh;
 
   # Noctalia Greeter (display manager)
-  services.displayManager.noctalia-greeter.enable = true;
+  services.displayManager.noctalia-greeter = {
+    enable = true;
+    # Configure power actions in the session panel
+    # Changed suspend to hibernate due to NVIDIA S0/s2idle resume issues
+    settings = {
+      session = {
+        power = {
+          # Use hibernate instead of suspend (NVIDIA doesn't resume on S0 modern standby)
+          suspend = "hibernate";
+          # You can also disable suspend entirely:
+          # suspend = "disabled";
+        };
+      };
+    };
+  };
 
   # Force wlroots to use AMD GPU only
   # Prevents NVIDIA CRTC crash causing kernel panic and graphical corruption
