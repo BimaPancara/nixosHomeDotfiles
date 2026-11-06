@@ -7,11 +7,8 @@
     yazi
     termusic
     tree
-    youtube-tui
-    yt-dlp
     btop
     lazygit
-    unzip
     tmux
   ];
 

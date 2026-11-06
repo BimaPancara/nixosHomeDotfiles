@@ -1,9 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  # Keep more boot generations for safety
-  boot.loader.systemd-boot.configurationLimit = 20;
-
   # Enable core dumps for debugging crashes
   systemd.coredump.enable = true;
   systemd.coredump.settings = {
@@ -35,7 +32,6 @@
     sysstat            # Performance monitoring (sar, iostat)
     powertop           # Power consumption analysis
     lm_sensors         # Temperature monitoring
-    smartmontools      # SMART disk health
     memtest86plus      # Memory testing (added to boot menu)
   ];
 
@@ -46,13 +42,6 @@
       efi /memtest.efi
     '';
   };
-
-  # NVIDIA stability parameters (merged with boot.nix params)
-  boot.kernelParams = [
-    "nvidia.NVreg_EnableBacklight=1"
-    "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
-    "nvidia.NVreg_TemporaryFilePath=/var/tmp"
-  ];
 
   # Hardware error logging
   boot.extraModprobeConfig = ''

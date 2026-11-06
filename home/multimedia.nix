@@ -8,9 +8,5 @@
 
     # Images
     feh
-
-    # YouTube
-    youtube-tui
-    yt-dlp
   ];
 }

@@ -7,8 +7,5 @@
 
     # Text editor
     featherpad
-
-    # Unzip
-    unzip
   ];
 }
