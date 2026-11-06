@@ -53,21 +53,10 @@
     options nvidia NVreg_RmLogonRC=1
   '';
 
-  # Fix NVIDIA suspend/resume - explicitly enable systemd services
-  # NixOS preset ignores all units, so we must explicitly enable these
-  systemd.services.nvidia-suspend.enable = lib.mkForce true;
-  systemd.services.nvidia-resume.enable = lib.mkForce true;
-  systemd.services.nvidia-hibernate.enable = lib.mkForce true;
-
   # Fix systemd 256+ suspend freeze timeout with NVIDIA/compositors
   # Prevents "Failed to freeze unit 'user.slice': Connection timed out"
+  # This is the upstream recommended fix for NVIDIA + systemd 256+
   systemd.services.systemd-suspend.environment.SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false";
   systemd.services.systemd-hibernate.environment.SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false";
-
-  # Force NVIDIA services to run despite preset: ignore *
-  # This is critical - without this, NVIDIA resume never runs
-  systemd.user.services.nvidia-suspend.enable = lib.mkForce true;
-  systemd.user.services.nvidia-resume.enable = lib.mkForce true;
-  systemd.services.nvidia-suspend.unitConfig.IgnoreOnIsolate = false;
-  systemd.services.nvidia-resume.unitConfig.IgnoreOnIsolate = false;
+  systemd.services.systemd-suspend-then-hibernate.environment.SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false";
 }
