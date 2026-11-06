@@ -63,4 +63,11 @@
   # Prevents "Failed to freeze unit 'user.slice': Connection timed out"
   systemd.services.systemd-suspend.environment.SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false";
   systemd.services.systemd-hibernate.environment.SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false";
+
+  # Force NVIDIA services to run despite preset: ignore *
+  # This is critical - without this, NVIDIA resume never runs
+  systemd.user.services.nvidia-suspend.enable = lib.mkForce true;
+  systemd.user.services.nvidia-resume.enable = lib.mkForce true;
+  systemd.services.nvidia-suspend.unitConfig.IgnoreOnIsolate = false;
+  systemd.services.nvidia-resume.unitConfig.IgnoreOnIsolate = false;
 }

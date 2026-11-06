@@ -12,19 +12,23 @@
       Type = "oneshot";
       ExecStart = "${pkgs.writeScript "sleep-hook-start" ''
         #!/bin/sh
-        # Before suspend: log current state
         logger "sleep-hook: Preparing for suspend"
-        # Stop greetd to release GPU resources
-        systemctl stop greetd
+        # Stop display manager to release GPU resources
+        systemctl stop greetd || true
+        # Unload NVIDIA DRM module to prevent resume hang
+        modprobe -r nvidia_drm || true
+        modprobe -r nvidia_modeset || true
       ''}";
       ExecStop = "${pkgs.writeScript "sleep-hook-stop" ''
         #!/bin/sh
-        # After resume: restart display manager
         logger "sleep-hook: Resuming from suspend"
-        # Give NVIDIA resume service time to complete
+        # Reload NVIDIA DRM module
+        modprobe nvidia_drm
+        modprobe nvidia_modeset
+        # Wait for GPU to initialize
         sleep 2
-        # Restart greetd
-        systemctl start greetd
+        # Restart display manager
+        systemctl start greetd || true
       ''}";
       RemainAfterExit = true;
     };
