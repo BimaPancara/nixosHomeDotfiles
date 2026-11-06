@@ -6,6 +6,7 @@
     waybar
     foot
     fuzzel
+    firefox
   ];
 
   # Enable Noctalia
