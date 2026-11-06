@@ -8,6 +8,12 @@
     packages = with pkgs; [];
   };
 
+  # Sudo configuration
+  security.sudo = {
+    enable = true;
+    wheelNeedsPassword = true;  # Require password for sudo
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 }

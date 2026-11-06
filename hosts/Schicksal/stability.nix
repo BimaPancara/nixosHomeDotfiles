@@ -2,6 +2,7 @@
 
 {
   # Disable powertop to avoid conflicts with TLP
+  # Note: powertop is still installed for manual diagnostics, but auto-tuning is disabled
   powerManagement.powertop.enable = false;
 
   # Enable core dumps for debugging crashes

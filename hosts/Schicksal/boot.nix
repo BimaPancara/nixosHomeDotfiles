@@ -28,16 +28,13 @@
     # NVIDIA framebuffer device (prevents graphical corruption)
     "nvidia-drm.fbdev=1"
 
-    # Enable NVIDIA DRM KMS client (helps with resume)
-    "nvidia-drm.modeset=1"
-
     # NVIDIA backlight and memory preservation
     "nvidia.NVreg_EnableBacklight=1"
     "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
     "nvidia.NVreg_TemporaryFilePath=/var/tmp"
 
     # Disable NVIDIA power management (causes instability on laptops)
-    "NVreg_DynamicPowerManagement=0"
+    "nvidia.NVreg_DynamicPowerManagement=0"
 
     # ACPI OS layer - tells BIOS we're handling power management
     "acpi_osi=Linux"

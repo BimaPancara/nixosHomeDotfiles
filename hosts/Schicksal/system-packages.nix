@@ -4,6 +4,9 @@
   environment.systemPackages = with pkgs; [
     virtiofsd
 
+    # Nix helper - nicer interface for nixos-rebuild
+    nh               # nix helper (nh os switch, nh clean all, etc.)
+
     # Hardware inspection
     usbutils       # lsusb
     pciutils       # lspci
@@ -26,6 +29,7 @@
     which
     file
     tree
+    git            # Version control (system-wide)
 
     # Process and performance monitoring
     procps         # ps, top, free, uptime
