@@ -8,27 +8,28 @@
     before = [ "sleep.target" ];
     after = [ "nvidia-suspend.service" ];
     wantedBy = [ "sleep.target" ];
+    path = [ pkgs.systemd pkgs.kmod ];
     serviceConfig = {
       Type = "oneshot";
       ExecStart = "${pkgs.writeScript "sleep-hook-start" ''
         #!/bin/sh
-        logger "sleep-hook: Preparing for suspend"
+        ${pkgs.systemd}/bin/logger "sleep-hook: Preparing for suspend"
         # Stop display manager to release GPU resources
-        systemctl stop greetd || true
+        ${pkgs.systemd}/bin/systemctl stop greetd || true
         # Unload NVIDIA DRM module to prevent resume hang
-        modprobe -r nvidia_drm || true
-        modprobe -r nvidia_modeset || true
+        ${pkgs.kmod}/bin/modprobe -r nvidia_drm || true
+        ${pkgs.kmod}/bin/modprobe -r nvidia_modeset || true
       ''}";
       ExecStop = "${pkgs.writeScript "sleep-hook-stop" ''
         #!/bin/sh
-        logger "sleep-hook: Resuming from suspend"
+        ${pkgs.systemd}/bin/logger "sleep-hook: Resuming from suspend"
         # Reload NVIDIA DRM module
-        modprobe nvidia_drm
-        modprobe nvidia_modeset
+        ${pkgs.kmod}/bin/modprobe nvidia_drm
+        ${pkgs.kmod}/bin/modprobe nvidia_modeset
         # Wait for GPU to initialize
         sleep 2
         # Restart display manager
-        systemctl start greetd || true
+        ${pkgs.systemd}/bin/systemctl start greetd || true
       ''}";
       RemainAfterExit = true;
     };
