@@ -13,9 +13,10 @@
     open = false;
     modesetting.enable = true;
 
-    # Power management enabled with TLP (finegrained for better battery)
+    # Power management - disabled finegrained to fix suspend/resume on s2idle
+    # finegrained causes GPU to enter deep sleep states that fail to resume
     powerManagement.enable = true;
-    powerManagement.finegrained = true;
+    powerManagement.finegrained = false;
 
     prime = {
       amdgpuBusId = "PCI:6@0:0:0";
@@ -45,8 +46,9 @@
       CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
 
       # PCIe ASPM (Active State Power Management)
+      # Use conservative settings to prevent suspend/resume issues
       PCIE_ASPM_ON_AC = "performance";
-      PCIE_ASPM_ON_BAT = "powersupersave";
+      PCIE_ASPM_ON_BAT = "powersave";  # Changed from powersupersave (was causing resume hangs)
 
       # Radeon graphics (AMD iGPU)
       RADEON_POWER_PROFILE_ON_AC = "high";

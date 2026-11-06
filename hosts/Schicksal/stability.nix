@@ -1,6 +1,11 @@
 { config, pkgs, lib, ... }:
 
 {
+  # Force deep sleep mode instead of s2idle (fixes suspend/resume with hybrid graphics)
+  # s2idle + NVIDIA finegrained PM causes resume hangs
+  powerManagement.powertop.enable = false;  # Avoid conflicts with TLP
+  boot.kernelParams = [ "mem_sleep_default=deep" ];  # Prefer S3 over s2idle
+
   # Enable core dumps for debugging crashes
   systemd.coredump.enable = true;
   systemd.coredump.settings = {
