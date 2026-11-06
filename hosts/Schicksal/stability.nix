@@ -23,14 +23,7 @@
   # SMART disk monitoring - alerts before disk failure
   services.smartd = {
     enable = true;
-    extraOptions = [
-      "DEVICESCAN"
-      "-a"
-      "-o" "on"
-      "-S" "on"
-      "-s" "(S/../.././02|L/../../6/03)"
-      "-W" "4,35,40"
-    ];
+    extraOptions = [ "-d" "q33,1" "-H" ];
   };
 
   # Thermal monitoring
