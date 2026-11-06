@@ -29,6 +29,5 @@
 
     # Applications
     ./emacs.nix
-    ./game.nix
   ];
 }
