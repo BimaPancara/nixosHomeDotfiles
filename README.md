@@ -179,3 +179,49 @@ sudo nixos-generate-config --show-hardware-config > hosts/Schicksal/hardware-con
 ## License
 
 MIT
+
+---
+
+## Stability & Debugging
+
+### Kernel Panic Recovery
+
+1. **Hold Shift** during boot to access systemd-boot menu
+2. Select a previous generation (up to 20 kept)
+3. Boot into working system
+4. Investigate logs: `journalctl -b -1 -p err`
+
+### Debugging Tools
+
+```bash
+# View hardware errors
+journalctl -k -p err
+
+# Check SMART disk health
+sudo smartctl -a /dev/nvme0n1
+
+# Monitor temperatures
+sensors
+
+# Analyze crashes
+crash /var/lib/systemd/coredump/*
+
+# Memory test
+# Select "MemTest86+" from boot menu
+```
+
+### NVIDIA Stability
+
+If you experience kernel panics or graphical corruption:
+
+1. Boot with `nomodeset` kernel parameter
+2. Check NVIDIA logs: `journalctl -u nvidia-persistenced`
+3. Try disabling power management in `hosts/Schicksal/hardware.nix`
+
+### Early OOM
+
+System will kill processes before freezing:
+- Memory threshold: 5%
+- Swap threshold: 10%
+
+Check logs: `journalctl -u earlyoom`
