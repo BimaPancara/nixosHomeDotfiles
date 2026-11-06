@@ -23,7 +23,8 @@
   # SMART disk monitoring - alerts before disk failure
   services.smartd = {
     enable = true;
-    extraOptions = [ "-d" "q33,1" "-H" ];
+    # Use default autodetection with simple config
+    extraOptions = [ "-i" "1800" ];  # Check every 30 minutes
   };
 
   # Thermal monitoring
