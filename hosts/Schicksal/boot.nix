@@ -6,7 +6,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Keep the latest 10 system generations in systemd-boot
-  boot.loader.systemd-boot.configurationLimit = 10;
 
   # Kernel parameters for hybrid graphics and stability
   boot.kernelParams = [
