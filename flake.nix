@@ -41,7 +41,7 @@
           home-manager.users.apokaliph = import ./home/apokaliph.nix;
           home-manager.sharedModules = [
             noctalia.homeModules.default
-            nix-index-database.hmModules.nix-index
+            nix-index-database.homeModules.nix-index
           ];
         }
       ];
