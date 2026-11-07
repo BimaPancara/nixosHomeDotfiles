@@ -5,8 +5,8 @@
     virtiofsd
 
     # Nix helper - nicer interface for nixos-rebuild
-    nh                          # nix helper (nh os switch, nh clean all, etc.)
-    nix-index-database.comma    # comma: search and install packages quickly
+    nh               # nix helper (nh os switch, nh clean all, etc.)
+    nix-index        # provides comma: search and install packages quickly
 
     # Hardware inspection
     usbutils       # lsusb
