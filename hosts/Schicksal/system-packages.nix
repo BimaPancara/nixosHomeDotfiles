@@ -60,5 +60,24 @@
     ripgrep        # rg
     fd             # fd
     jq             # JSON processing
+
+    # Recovery tools - for when the system is in a bad state
+    bash           # Recovery shell (more compatible than zsh)
+    gdb            # Debugging crashes
+    inetutils      # Basic network tools
+    iotop          # I/O monitoring
+    iw             # Wireless configuration
+    lynx           # Text browser for offline docs
+    man-pages      # Local documentation
+    openssl        # Encryption/certificates
+    pv             # Progress indicator for pipes
+    screen         # Terminal multiplexer
+    sg3_utils      # SCSI/low-level disk tools
+    socat          # Network relay/debugging
+    units          # Unit conversion
+    unixtools.route  # Routing table
+    vim            # Editor for recovery
+    wget           # Download without network deps
+    wirelesstools  # Legacy wireless tools
   ];
 }
