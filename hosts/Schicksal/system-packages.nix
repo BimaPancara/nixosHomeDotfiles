@@ -6,7 +6,8 @@
 
     # Nix helper - nicer interface for nixos-rebuild
     nh               # nix helper (nh os switch, nh clean all, etc.)
-    nix-index        # provides comma: search and install packages quickly
+    nix-index        # nix-index database
+    comma            # fast package search and install (comma <pkg>)
 
     # Hardware inspection
     usbutils       # lsusb
