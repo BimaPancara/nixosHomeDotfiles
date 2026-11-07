@@ -35,9 +35,6 @@
 
     # Disable NVIDIA power management (causes instability on laptops)
     "nvidia.NVreg_DynamicPowerManagement=0"
-
-    # ACPI OS layer - tells BIOS we're handling power management
-    "acpi_osi=Linux"
   ];
 
   # KVM support for AMD Ryzen CPU
