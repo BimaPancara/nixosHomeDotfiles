@@ -72,7 +72,4 @@
   ];
 
   fonts.fontconfig.enable = true;
-
-  # Nix-index database for comma command
-  programs.nix-index-database.comma.enable = true;
 }
