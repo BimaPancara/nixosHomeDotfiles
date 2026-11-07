@@ -11,10 +11,10 @@
   # Kernel parameters for hybrid graphics and stability
   # AMD iGPU + NVIDIA RTX 3050 Mobile offload configuration
   boot.kernelParams = [
-    # CPU power management
-    "processor.max_cstate=1"
-    "idle=nomove"
-    "pcie_aspm=off"
+    # CPU power management - relaxed to prevent idle stack corruption
+    # Using default C-states (removed max_cstate=1 which caused panics)
+    "idle=halt"              # Use halt idle instead of nomove (causes stack corruption)
+    "pcie_aspm=performance"  # Better than 'off' for AMD Ryzen, prevents PCIe instability
 
     # IOMMU for GPU passthrough
     "iommu=pt"
