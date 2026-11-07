@@ -1,4 +1,3 @@
-
 {
   description = "NixOS configuration for Schicksal";
 
@@ -11,15 +10,14 @@
     };
 
     noctalia = {
-    url = "github:noctalia-dev/noctalia";
-      inputs.nixpkgs.follows = "nixpkgs"; # this line is optional, prevents downloading two versions of nixpkgs but disables cache   
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     noctalia-greeter = {
-  url = "github:noctalia-dev/noctalia-greeter";
-  inputs.nixpkgs.follows = "nixpkgs";
-};
-
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, home-manager, noctalia, noctalia-greeter, ... }: {
@@ -30,16 +28,28 @@
         ./hosts/Schicksal/default.nix
 
         home-manager.nixosModules.home-manager
-	noctalia-greeter.nixosModules.default
+        noctalia-greeter.nixosModules.default
 
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.apokaliph = import ./home/apokaliph.nix;
-	   home-manager.sharedModules = [
+          home-manager.sharedModules = [
             noctalia.homeModules.default
           ];
         }
+      ];
+    };
+
+    # Formatter for `nix fmt`
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
+
+    # Development shell for `nix develop`
+    devShells.x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.mkShell {
+      packages = with nixpkgs.legacyPackages.x86_64-linux; [
+        nil              # Nix language server
+        nixfmt   # Nix formatter
+        statix           # Nix linter
       ];
     };
   };
