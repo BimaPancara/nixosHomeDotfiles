@@ -9,6 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     noctalia = {
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,7 +25,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, noctalia, noctalia-greeter, ... }: {
+  outputs = { nixpkgs, home-manager, noctalia, noctalia-greeter, nix-index-database, ... }: {
     nixosConfigurations.Schicksal = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
@@ -36,6 +41,7 @@
           home-manager.users.apokaliph = import ./home/apokaliph.nix;
           home-manager.sharedModules = [
             noctalia.homeModules.default
+            nix-index-database.homeModules.nix-index
           ];
         }
       ];
